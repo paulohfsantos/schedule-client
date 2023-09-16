@@ -7,11 +7,17 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    ElButton: typeof import('element-plus')['ElButton']
-    HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
+    ElRow: typeof import('element-plus/es')['ElRow']
+    ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
+    NavMenu: typeof import('./src/components/Navigation/NavMenu.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    TheWelcome: typeof import('./src/components/TheWelcome.vue')['default']
-    WelcomeItem: typeof import('./src/components/WelcomeItem.vue')['default']
+    Schedule: typeof import('./src/components/Schedule/Schedule.vue')['default']
+    ScheduleCustomViewMode: typeof import('./src/components/Schedule/ScheduleCustomViewMode.vue')['default']
+    ScheduleDateIndicator: typeof import('./src/components/Schedule/ScheduleDateIndicator.vue')['default']
+    ScheduleDateSelector: typeof import('./src/components/Schedule/ScheduleDateSelector.vue')['default']
+    ScheduleHeader: typeof import('./src/components/Schedule/ScheduleHeader.vue')['default']
+    ScheduleMain: typeof import('./src/components/Schedule/ScheduleMain.vue')['default']
+    ScheduleWeekDays: typeof import('./src/components/Schedule/ScheduleWeekDays.vue')['default']
   }
 }

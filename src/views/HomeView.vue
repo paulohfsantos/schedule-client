@@ -1,8 +1,13 @@
 <script setup lang="ts">
+import { ElCol, ElCard } from 'element-plus'
 </script>
 
 <template>
-  <div class="home">
-    <h1>fodase</h1>
-  </div>
+  <section>
+    <el-card shadow="never">
+      <el-col :span="24">
+        <h2>Home View</h2>
+      </el-col>
+    </el-card>
+  </section>
 </template>
