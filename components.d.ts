@@ -18,6 +18,7 @@ declare module 'vue' {
     ScheduleDateSelector: typeof import('./src/components/Schedule/ScheduleDateSelector.vue')['default']
     ScheduleHeader: typeof import('./src/components/Schedule/ScheduleHeader.vue')['default']
     ScheduleMain: typeof import('./src/components/Schedule/ScheduleMain.vue')['default']
+    ScheduleMonthDayItem: typeof import('./src/components/Schedule/ScheduleMonthDayItem.vue')['default']
     ScheduleWeekDays: typeof import('./src/components/Schedule/ScheduleWeekDays.vue')['default']
   }
 }

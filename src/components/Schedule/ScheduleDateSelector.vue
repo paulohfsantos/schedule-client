@@ -1,6 +1,6 @@
 <template>
   <el-row justify="end">
-    <schedule-custom-view-mode @viewChanged="handleViewChange" />
+    <schedule-custom-view-mode :style="{ display: 'none' }" @viewChanged="handleViewChange" />
     <div class="selectors">
       <el-button size="small" @click="selectPrevious">
         {{ '<' }}
