@@ -7,15 +7,19 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    ElButton: typeof import('element-plus/es')['ElButton']
     ElRow: typeof import('element-plus/es')['ElRow']
     ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
+    LoginForm: typeof import('./src/components/Auth/LoginForm.vue')['default']
     NavMenu: typeof import('./src/components/Navigation/NavMenu.vue')['default']
+    RegisterForm: typeof import('./src/components/Auth/RegisterForm.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Schedule: typeof import('./src/components/Schedule/Schedule.vue')['default']
     ScheduleCustomViewMode: typeof import('./src/components/Schedule/ScheduleCustomViewMode.vue')['default']
     ScheduleDateIndicator: typeof import('./src/components/Schedule/ScheduleDateIndicator.vue')['default']
     ScheduleDateSelector: typeof import('./src/components/Schedule/ScheduleDateSelector.vue')['default']
+    ScheduleEventCreate: typeof import('./src/components/Schedule/ScheduleEventCreate.vue')['default']
     ScheduleHeader: typeof import('./src/components/Schedule/ScheduleHeader.vue')['default']
     ScheduleMain: typeof import('./src/components/Schedule/ScheduleMain.vue')['default']
     ScheduleMonthDayItem: typeof import('./src/components/Schedule/ScheduleMonthDayItem.vue')['default']
