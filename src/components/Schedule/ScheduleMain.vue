@@ -8,7 +8,7 @@
       <!-- actions -->
       <el-col :span="13" class="actions">
         <el-row>
-          <el-button size="small">Criar evento</el-button>
+          <el-button @click="handleDialog" size="small">Criar evento</el-button>
         </el-row>
       </el-col>
       
@@ -39,6 +39,8 @@
         :currentView="currentView"
       />
     </ul>
+
+    <schedule-event-create v-model="createEventDialog" />
   </el-card>
 </template>
 
@@ -56,13 +58,37 @@ import ScheduleDateIndicator from './ScheduleDateIndicator.vue';
 import ScheduleDateSelector from './ScheduleDateSelector.vue';
 import ScheduleWeekDays from './ScheduleWeekDays.vue';
 import ScheduleMonthDayItem from './ScheduleMonthDayItem.vue';
+import ScheduleEventCreate from './ScheduleEventCreate.vue';
 import type { ViewType, DayJsViewType, Event } from '@/types';
 
 // replace this later with api data
-const events = ref<Event[]>([])
+const events = ref<Event[]>([
+  {
+    id: 1,
+    description: 'Reunião com o cliente',
+    start_date: new Date('2023-08-18'),
+    end_date: new Date('2023-08-18'),
+    title: 'Reunião com o cliente',
+  },
+  {
+    id: 2,
+    description: 'Reunião com o cliente',
+    start_date: new Date('2023-09-18'),
+    end_date: new Date('2023-09-18'),
+    title: 'Reunião com o outro cliente',
+  },
+  {
+    id: 3,
+    description: 'Reunião com o cliente',
+    start_date: new Date('2023-10-18'),
+    end_date: new Date('2023-10-18'),
+    title: 'Reunião com o outro cliente',
+  }
+])
 const selectedDate = ref(dayjs());
 const currentDate = ref(dayjs().format('YYYY-MM-DD'));
 const currentView = ref<ViewType>("month" as ViewType);
+const createEventDialog = ref(false);
 
 const handleViewChange = (view: DayJsViewType) => {
   console.log(view)
@@ -105,7 +131,8 @@ const previousMonth = computed(() => {
       date: startVisibleDate.add(index, "day").format("YYYY-MM-DD"),
       isCurrentMonth: false,
       events: filterEventsForDate(
-        startVisibleDate.add(index, "day").format("YYYY-MM-DD")
+        startVisibleDate.add(index, "day")
+          .format("YYYY-MM-DD")
       )
     }));
 })
@@ -139,13 +166,19 @@ const nextMonth = computed(() => {
   }));
 })
 
+const handleDialog = () => {
+  createEventDialog.value = true;
+}
 
 const formatDate = (day: number) => {
   return dayjs(`${year.value}-${month.value}-${day}`).format('YYYY-MM-DD')
 }
 
 const filterEventsForDate = (date: string) => {
-  return events.value.filter(event => event.start_date === date)
+  return events.value.filter(event => {
+    return dayjs(event.start_date)
+      .format('YYYY-MM-DD') === date
+  })
 }
 </script>
 

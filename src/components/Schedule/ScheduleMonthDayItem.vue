@@ -90,8 +90,12 @@ const sortedDays = computed(() => {
 })
 
 const calculateTop = (event: Event) => {
-  const startHour = parseInt(event.initialTime.split(":")[0]);
-  const startMinute = parseInt(event.initialTime.split(":")[1]);
+  const startHour = event.initialTime
+    ? parseInt(event.initialTime.split(":")[0])
+    : 0;
+  const startMinute = event.initialTime
+    ? parseInt(event.initialTime.split(":")[1])
+    : 0;
   const totalMinutes = startHour * 60 + startMinute;
   const minutesFromStartOfDay = totalMinutes - (6 * 60); // Assume day starts at 6am
   const pixelsFromTop = (minutesFromStartOfDay / 60) * 40; // Assume each hour is 40 pixels tall
