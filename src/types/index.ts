@@ -5,14 +5,14 @@ export type DayJsViewType = dayjs.ManipulateType
 export type Event = {
   id: number;
   title: string;
-  start_date: string;
-  end_date: string;
-  initialTime: string;
-  finalTime: string;
+  start_date: Date;
+  end_date: Date;
+  initialTime?: string;
+  finalTime?: string;
   description: string;
 }
 
-export type EventForm = Pick<Event, 'title' | 'start_date' | 'end_date' | 'description'>
+export type EventForm = Omit<Event, 'id'>
 
 export type EventFormEdit = Pick<Event, 'id' | 'title' | 'start_date' | 'end_date' | 'description'>
 
@@ -26,4 +26,27 @@ export type CalendarEvent = {
   date: string;
   isCurrentMonth: boolean;
   events: Event[];
+}
+
+// auth
+export interface ILoginRequest {
+  email: string;
+  password: string;
+}
+
+export interface IRegisterRequest {
+  username: string;
+  email: string;
+  password: string;
+}
+
+export interface IAuthResponse {
+  token: string;
+  user: IUser;
+}
+
+export interface IUser {
+  id: number;
+  username: string;
+  email: string;
 }
