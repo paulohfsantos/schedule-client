@@ -14,13 +14,16 @@
             <router-link to="/schedule">Schedule</router-link>
           </el-link>
         </el-menu-item>
+        <el-menu-item index="3">
+          <el-button text>logout</el-button>
+        </el-menu-item>
       </el-menu>
     </div>
   </header>
 </template>
 
 <script setup lang="ts">
-import { ElMenu, ElMenuItem, ElLink } from 'element-plus';
+import { ElMenu, ElMenuItem, ElLink, ElButton } from 'element-plus';
 </script>
 
 <style>
